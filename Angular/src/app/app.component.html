@@ -1,8 +1,8 @@
-<div class="form-group">
-  <label for="exampleFormControlSelect1">Example select</label>
+<div style="padding: 64px;" class="form-group">
   <select class="form-control" [(ngModel)]="selectedData" (ngModelChange)="changed($event)">
     <option *ngFor="let data of selectBoxDatas" value="{{ data.id }}">{{
       data.value
     }}</option>
   </select>
+  <h1 style="margin: 32px; text-align: center;">{{ortalama}}</h1>
 </div>
