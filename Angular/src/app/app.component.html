@@ -1,8 +1,46 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  </style>
 <div style="padding: 64px;" class="form-group">
+  <h1 style="margin: 32px; text-align: center;">2019</h1>
   <select class="form-control" [(ngModel)]="selectedData" (ngModelChange)="changed($event)">
     <option *ngFor="let data of selectBoxDatas" value="{{ data.id }}">{{
       data.value
     }}</option>
   </select>
-  <h1 style="margin: 32px; text-align: center;">{{ortalama}}</h1>
+  <div class="row">
+    <div class="column">
+      <h2 style="margin: 32px; text-align: center;">VOLUME</h2>
+      <h3 style="margin: 32px; text-align: left; ">{{ortalamaVol}}</h3>
+      <h3 style="margin: 32px; text-align: left; ">{{sapmaVol}}</h3>
+      <h3 style="margin: 32px; text-align: left; ">{{minimumVol}}</h3>
+      <h3 style="margin: 32px; text-align: left; ">{{medianVol}}</h3>
+      <h3 style="margin: 32px; text-align: left; ">{{maximumVol}}</h3>
+    </div>
+    <div class="column">
+      <h2 style="margin: 32px; text-align: center;">VALUE</h2>
+      <h3 style="margin: 32px; text-align: left; ">{{ortalamaVal}}</h3>
+      <h3 style="margin: 32px; text-align: left; ">{{sapmaVal}}</h3>
+      <h3 style="margin: 32px; text-align: left; ">{{minimumVal}}</h3>
+      <h3 style="margin: 32px; text-align: left; ">{{medianVal}}</h3>
+      <h3 style="margin: 32px; text-align: left; ">{{maximumVal}}</h3>
+    </div>
+  </div>
 </div>

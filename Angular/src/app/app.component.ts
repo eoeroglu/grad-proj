@@ -134,13 +134,31 @@ export class AppComponent {
 
   selectedData: { id: number; value: string };
 
-  ortalama: string = "";
+  ortalamaVol: string = "";
+  sapmaVol: string = "";
+  minimumVol: string = "";
+  maximumVol: string = "";
+  medianVol: string = "";
+  ortalamaVal: string = "";
+  sapmaVal: string = "";
+  minimumVal: string = "";
+  maximumVal: string = "";
+  medianVal: string = "";
 
   constructor(private http: HttpClient) { }
 
-  changed(selectedID: number) {
-    this.http.get("http://127.0.0.1:5000/api/sec/" + selectedID, { responseType: 'json' }).subscribe((res: any) => {
-      this.ortalama = res.ortalama;
+  changed(selectedID: number, selectedPer: number) {
+    this.http.get("http://127.0.0.1:5000/api/sec/" + selectedID , { responseType: 'json' }).subscribe((res: any) => {
+      this.ortalamaVol = "Ortalama : " + res.ortalamaVol;
+      this.sapmaVol = "Standart Sapma : " + res.sapmaVol;
+      this.minimumVol = "Minimum : " + res.minVol;
+      this.maximumVol = "Maximum : " + res.maxVol;
+      this.medianVol = "Median : " + res.medVol;
+      this.ortalamaVal = "Ortalama : " + res.ortalamaVal;
+      this.sapmaVal = "Standart Sapma : " + res.sapmaVal;
+      this.minimumVal = "Minimum : " + res.minVal;
+      this.maximumVal = "Maximum : " + res.maxVal;
+      this.medianVal = "Median : " + res.medVal;
     });
   }
 }
