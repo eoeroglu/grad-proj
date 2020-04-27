@@ -2,28 +2,37 @@
   * {
     box-sizing: border-box;
   }
-  
+
   /* Create two equal columns that floats next to each other */
   .column {
     float: left;
     width: 50%;
     padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
+    height: 300px;
+    /* Should be removed. Only for demonstration */
   }
-  
+
   /* Clear floats after the columns */
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
-  </style>
+</style>
 <div style="padding: 64px;" class="form-group">
   <h1 style="margin: 32px; text-align: center;">2019</h1>
-  <select class="form-control" [(ngModel)]="selectedData" (ngModelChange)="changed($event)">
-    <option *ngFor="let data of selectBoxDatas" value="{{ data.id }}">{{
+  <select class="form-control" [(ngModel)]="selectedData">
+    <option *ngFor="let data of selectBoxDatas" [ngValue]="data">{{
       data.value
     }}</option>
+  </select>
+  <select [disabled] = "!selectedData" class="form-control" style="margin-top: 16px;" [(ngModel)]="selectedPer" (ngModelChange)="perChanged($event)">
+    <option value="2014">2014</option>
+    <option value="2015">2015</option>
+    <option value="2016">2016</option>
+    <option value="2017">2017</option>
+    <option value="2018">2018</option>
+    <option value="2019">2019</option>
   </select>
   <div class="row">
     <div class="column">

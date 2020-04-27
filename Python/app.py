@@ -8,20 +8,20 @@ import pandas
 app = Flask(__name__)
 CORS(app)
 
-df = pandas.read_csv('2019.csv', delimiter=';', thousands=',', decimal='.')
+df = pandas.read_csv('data.csv', delimiter=';', thousands=',', decimal='.')
 
-@app.route('/api/sec/<int:id>', methods=['GET'])
-def get_product(id):
-    return jsonify({'ortalamaVol': df[df['ID'] == id]['VOL'].mean(),
-                    'sapmaVol': df[df['ID'] == id]['VOL'].std(),
-                    'minVol': df[df['ID'] == id]['VOL'].min(),
-                    'maxVol': df[df['ID'] == id]['VOL'].max(),
-                    'medVol': df[df['ID'] == id]['VOL'].median(),
-                    'ortalamaVal': df[df['ID'] == id]['VAL'].mean(),
-                    'sapmaVal': df[df['ID'] == id]['VAL'].std(),
-                    'minVal': df[df['ID'] == id]['VAL'].min(),
-                    'maxVal': df[df['ID'] == id]['VAL'].max(),
-                    'medVal': df[df['ID'] == id]['VAL'].median()
+@app.route('/api/sec/<int:id>/<int:year>', methods=['GET'])
+def get_product(id, year):
+    return jsonify({'ortalamaVol': df[df['ID'] == id][df['YEAR'] == year][df['FACT'] == 'VOLUME']['SUM'].mean(),
+                    'sapmaVol': df[df['ID'] == id][df['YEAR'] == year][df['FACT'] == 'VOLUME']['SUM'].std(),
+                    'minVol': df[df['ID'] == id][df['YEAR'] == year][df['FACT'] == 'VOLUME']['SUM'].min(),
+                    'maxVol': df[df['ID'] == id][df['YEAR'] == year][df['FACT'] == 'VOLUME']['SUM'].max(),
+                    'medVol': df[df['ID'] == id][df['YEAR'] == year][df['FACT'] == 'VOLUME']['SUM'].median(),
+                    'ortalamaVal': df[df['ID'] == id][df['YEAR'] == year][df['FACT'] == 'VALUE']['SUM'].mean(),
+                    'sapmaVal': df[df['ID'] == id][df['YEAR'] == year][df['FACT'] == 'VALUE']['SUM'].std(),
+                    'minVal': df[df['ID'] == id][df['YEAR'] == year][df['FACT'] == 'VALUE']['SUM'].min(),
+                    'maxVal': df[df['ID'] == id][df['YEAR'] == year][df['FACT'] == 'VALUE']['SUM'].max(),
+                    'medVal': df[df['ID'] == id][df['YEAR'] == year][df['FACT'] == 'VALUE']['SUM'].median()
                     })
 
 @app.errorhandler(404)

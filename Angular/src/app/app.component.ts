@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: "app-root",
@@ -130,9 +130,11 @@ export class AppComponent {
     { id: 120, value: "KOPUK JOLELER" },
     { id: 121, value: "BRIYANTINLER" },
     { id: 122, value: "EL TEMIZLEME JELLERI VE KOPUKLERI" },
+    { id: 123, value: "TAHILLI ICECEKLER" },
   ];
 
   selectedData: { id: number; value: string };
+  selectedPer: number;
 
   ortalamaVol: string = "";
   sapmaVol: string = "";
@@ -147,8 +149,8 @@ export class AppComponent {
 
   constructor(private http: HttpClient) { }
 
-  changed(selectedID: number, selectedPer: number) {
-    this.http.get("http://127.0.0.1:5000/api/sec/" + selectedID , { responseType: 'json' }).subscribe((res: any) => {
+  perChanged(year: number) {
+    this.http.get("http://127.0.0.1:5000/api/sec/" + this.selectedData.id + "/" + year, { responseType: 'json' }).subscribe((res: any) => {
       this.ortalamaVol = "Ortalama : " + res.ortalamaVol;
       this.sapmaVol = "Standart Sapma : " + res.sapmaVol;
       this.minimumVol = "Minimum : " + res.minVol;
@@ -161,4 +163,5 @@ export class AppComponent {
       this.medianVal = "Median : " + res.medVal;
     });
   }
+
 }
