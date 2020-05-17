@@ -5,10 +5,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { JqueryTestComponent } from './jquery-test/jquery-test.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JqueryTestComponent
   ],
   imports: [
     BrowserModule,
