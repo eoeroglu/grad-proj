@@ -1,0 +1,38 @@
+<div class="form-group main-form-group">
+  <select class="form-control" [(ngModel)]="selectedData">
+    <option *ngFor="let data of selectBoxDatas" [ngValue]="data">{{
+      data.value
+    }}</option>
+  </select>
+  <select
+    [disabled]="!selectedData"
+    class="form-control mt-3"
+    [(ngModel)]="selectedPer"
+    (ngModelChange)="perChanged($event)"
+  >
+    <option value="2014">2014</option>
+    <option value="2015">2015</option>
+    <option value="2016">2016</option>
+    <option value="2017">2017</option>
+    <option value="2018">2018</option>
+    <option value="2019">2019</option>
+  </select>
+  <div class="row">
+    <div class="column">
+      <h2 class="text-center">VOLUME</h2>
+      <h3>{{ ortalamaVol }}</h3>
+      <h3>{{ sapmaVol }}</h3>
+      <h3>{{ minimumVol }}</h3>
+      <h3>{{ medianVol }}</h3>
+      <h3>{{ maximumVol }}</h3>
+    </div>
+    <div class="column">
+      <h2 class="text-center">VALUE</h2>
+      <h3>{{ ortalamaVal }}</h3>
+      <h3>{{ sapmaVal }}</h3>
+      <h3>{{ minimumVal }}</h3>
+      <h3>{{ medianVal }}</h3>
+      <h3>{{ maximumVal }}</h3>
+    </div>
+  </div>
+</div>

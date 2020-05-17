@@ -4,11 +4,11 @@ declare var jQuery: any;
 declare var $: any;
 
 @Component({
-  selector: "app-jquery-test",
-  templateUrl: "./jquery-test.component.html",
-  styleUrls: ["./jquery-test.component.scss"],
+  selector: "app-pivot-table",
+  templateUrl: "./pivot-table.component.html",
+  styleUrls: ["./pivot-table.component.scss"],
 })
-export class JqueryTestComponent implements OnInit {
+export class PivotTableComponent implements OnInit {
   private el: ElementRef;
 
   constructor(@Inject(ElementRef) el: ElementRef, private papa: Papa) {
@@ -36,22 +36,17 @@ export class JqueryTestComponent implements OnInit {
       targetElement.removeChild(targetElement.firstChild);
     }
 
-    let abc = this;
-    $(function () {
-      abc.papa.parse(
-        "https://raw.githubusercontent.com/nicolaskruchten/Rdatasets/master/csv/datasets/iris.csv",
-        {
-          download: true,
-          skipEmptyLines: true,
-          complete: function (parsed) {
-            debugger;
-            targetElement.pivotUI(parsed.data, {
-              rows: ["Petal.Length"],
-              cols: ["Petal.Width", "Species"],
-            });
-          },
-        }
-      );
+    $(() => {
+      this.papa.parse("../../assets/csv-files/data.csv", {
+        download: true,
+        skipEmptyLines: true,
+        complete: function (parsed) {
+          targetElement.pivotUI(parsed.data, {
+            // rows: ["Petal.Length"],
+            // cols: ["Petal.Width", "Species"],
+          });
+        },
+      });
     });
   }
 }
