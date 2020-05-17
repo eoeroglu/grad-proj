@@ -39,7 +39,7 @@ export class JqueryTestComponent implements OnInit {
     let abc = this;
     $(function () {
       abc.papa.parse(
-        "https://raw.githubusercontent.com/eoeroglu/itubtp/master/Python/data.csv?token=AB5KSMCQV6NH6OUXAA5KCCC6YCCAU",
+        "https://raw.githubusercontent.com/nicolaskruchten/Rdatasets/master/csv/datasets/iris.csv",
         {
           download: true,
           skipEmptyLines: true,
