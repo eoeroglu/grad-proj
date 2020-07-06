@@ -7,13 +7,12 @@ import { DatepickerOptions } from "ng2-datepicker";
   styleUrls: ["./forecast.component.scss"],
 })
 export class ForecastComponent implements OnInit {
+
+  trainDataRange: Date[];
+  testDataRange: Date[];
+
   selectedData: { id: number; value: string };
   method: number;
-  startDate1: any = 1591998682995;
-  endDate1: any = 1591998682995;
-
-  startDate2: any = 1591998682995;
-  endDate2: any = 1591998682995;
 
   selectBoxDatas: { id: number; value: string }[] = [
     { id: 1, value: "MARGARINLER" },

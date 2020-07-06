@@ -29,6 +29,8 @@
     "ngx-papaparse": "^4.0.4",
     "papaparse": "^5.2.0",
     "pivottable": "^2.23.0",
+    "primeicons": "^4.0.0",
+    "primeng": "^9.1.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

@@ -6,33 +6,54 @@
       }}</option>
     </select>
 
-    <select [(ngModel)]="method" class="form-control mt-3">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <div style="margin-top: 24px;" class="row">
-      <div class="col-md-6">
-        <ng-datepicker
-          [(ngModel)]="startDate1"
-        ></ng-datepicker>
-      </div>
-
-      <div class="col-md-6">
-        <ng-datepicker [(ngModel)]="endDate1"></ng-datepicker>
-      </div>
+    <div class="form-group mt-5">
+      <label>MEME 123</label>
+      <select [(ngModel)]="method" class="form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
     </div>
+
     <div style="margin-top: 24px;" class="row">
-      <div class="col-md-6">
-        <ng-datepicker
-          [(ngModel)]="startDate2"
-        ></ng-datepicker>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Kara Train Data</label>
+          <div>
+            <p-calendar
+              dateFormat="dd.mm.yy"
+              [style]="{ width: '100%' }"
+              [inputStyle]="{ width: '100%' }"
+              [(ngModel)]="trainDataRange"
+              name="calendar1"
+              selectionMode="range"
+              [readonlyInput]="true"
+            ></p-calendar>
+          </div>
+        </div>
       </div>
 
-      <div class="col-md-6">
-        <ng-datepicker [(ngModel)]="endDate2"></ng-datepicker>
+      <div class="col-md-4 text-center my-auto">
+        <button type="button" class="btn btn-primary">GET DATA</button>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Test Data</label>
+          <div>
+            <p-calendar
+              dateFormat="dd.mm.yy"
+              [style]="{ width: '100%' }"
+              [inputStyle]="{ width: '100%' }"
+              [(ngModel)]="testDataRange"
+              name="calendar1"
+              selectionMode="range"
+              [readonlyInput]="true"
+            ></p-calendar>
+          </div>
+        </div>
       </div>
     </div>
   </div>

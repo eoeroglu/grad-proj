@@ -10,6 +10,8 @@ import { SummaryComponent } from './summary/summary.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { NgDatepickerModule } from 'ng2-datepicker';
 import { ChartModule } from 'angular2-chartjs';
+import { CalendarModule } from 'primeng/calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ChartModule } from 'angular2-chartjs';
     FormsModule,
     HttpClientModule,
     NgDatepickerModule,
-    ChartModule
+    ChartModule,
+    CalendarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
