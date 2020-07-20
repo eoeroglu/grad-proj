@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="form-group mt-5">
+    <label>Sectors</label>
+    <select class="form-control" [(ngModel)]="selectedData">
+      <option *ngFor="let data of selectBoxDatas" [ngValue]="data">{{
+        data.value
+      }}</option>
+    </select>
+
+    <div class="form-group mt-5">
+      <label>Methods</label>
+      <select [(ngModel)]="method" class="form-control">
+        <option value="1">EMA</option>
+        <option value="2">ARIMA</option>
+        <option value="3">SARIMAX</option>
+      </select>
+    </div>
+
+    <div style="margin-top: 24px;" class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Train Data</label>
+          <div>
+            <p-calendar
+              dateFormat="dd.mm.yy"
+              [style]="{ width: '100%' }"
+              [inputStyle]="{ width: '100%' }"
+              [(ngModel)]="trainDataRange"
+              name="calendar1"
+              selectionMode="range"
+              [readonlyInput]="true"
+            ></p-calendar>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 text-center my-auto">
+        <button type="button" class="btn btn-primary">GET DATA</button>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Months to be Forecasted</label>
+          <div>
+            <p-calendar
+              dateFormat="dd.mm.yy"
+              [style]="{ width: '100%' }"
+              [inputStyle]="{ width: '100%' }"
+              [(ngModel)]="testDataRange"
+              name="calendar1"
+              selectionMode="range"
+              [readonlyInput]="true"
+            ></p-calendar>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <chart [type]="type" [data]="data" [options]="options"></chart>
+</div>
