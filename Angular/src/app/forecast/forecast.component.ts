@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DatepickerOptions } from "ng2-datepicker";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-forecast",
@@ -7,7 +8,6 @@ import { DatepickerOptions } from "ng2-datepicker";
   styleUrls: ["./forecast.component.scss"],
 })
 export class ForecastComponent implements OnInit {
-
   trainDataRange: Date[];
   testDataRange: Date[];
 
@@ -482,7 +482,27 @@ export class ForecastComponent implements OnInit {
     };
   };
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {}
+
+  getData() {
+    const url =
+      "http://127.0.0.1:5000/api/sec/" +
+      this.method +
+      "/" +
+      this.selectedData.id +
+      "/" +
+      this.trainDataRange[0].getTime() +
+      "/" +
+      this.trainDataRange[1].getTime() +
+      "/" +
+      this.testDataRange[0].getTime() +
+      "/" +
+      this.testDataRange[1].getTime();
+
+      console.log(url);
+
+    this.http.get(url, { responseType: "json" }).subscribe((res: any) => {});
+  }
 }

@@ -9,11 +9,10 @@
     <div class="form-group mt-5">
       <label>MEME 123</label>
       <select [(ngModel)]="method" class="form-control">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="moving">MOVING AVERAGE</option>
+        <option value="auto">AUTOARIMA</option>
+        <option value="sarimax">SARIMAX</option>
+
       </select>
     </div>
 
@@ -36,7 +35,7 @@
       </div>
 
       <div class="col-md-4 text-center my-auto">
-        <button type="button" class="btn btn-primary">GET DATA</button>
+        <button type="button" class="btn btn-primary" (click)="getData()">GET DATA</button>
       </div>
 
       <div class="col-md-4">
