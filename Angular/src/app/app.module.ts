@@ -7,19 +7,29 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PivotTableComponent } from './pivot-table/pivot-table.component';
 import { SummaryComponent } from './summary/summary.component';
+import { ForecastComponent } from './forecast/forecast.component';
+import { NgDatepickerModule } from 'ng2-datepicker';
+import { ChartModule } from 'angular2-chartjs';
+import { CalendarModule } from 'primeng/calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     PivotTableComponent,
-    SummaryComponent
+    SummaryComponent,
+    ForecastComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgDatepickerModule,
+    ChartModule,
+    CalendarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
